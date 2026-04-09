@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Play, RotateCcw, AlertCircle, CheckCircle2, School, User,
   ListOrdered, FastForward, Calculator, Info, Sparkles, BookOpen,
-  Shield, GraduationCap, Link, Edit2, Users
+  Shield, GraduationCap, Link, Edit2, Users, Table2
 } from 'lucide-react';
+import AllocationTable from './AllocationTable.jsx';
 import {
   ALL_DISTRICTS, BANDINGS, BAND_VALUES, MAIN_BAND, POA_NETS,
   HK_PRI_SCHOOLS, HK_SEC_SCHOOLS, PRIMARY_SCHOOLS,
@@ -27,21 +28,27 @@ export default function App() {
           <p className="text-slate-500 text-sm md:text-base text-center mb-6">
             整合教育局 2024/2026 最新官方選校名冊及真實學校數據庫。
           </p>
-          <div className="flex justify-center gap-2 md:gap-4 border-b border-slate-200">
-            {['SSPA','POA'].map(tab => (
-              <button key={tab} onClick={() => setActiveTab(tab)}
-                className={`px-6 py-3 font-bold text-lg border-b-4 transition-colors
-                  ${activeTab === tab
-                    ? tab === 'SSPA' ? 'border-blue-600 text-blue-700' : 'border-emerald-600 text-emerald-700'
+          <div className="flex justify-center gap-2 md:gap-4 border-b border-slate-200 flex-wrap">
+            {[
+              { id: 'SSPA', label: '升中派位 (SSPA)', activeClass: 'border-blue-600 text-blue-700' },
+              { id: 'POA', label: '小一入學 (POA)', activeClass: 'border-emerald-600 text-emerald-700' },
+              { id: 'TABLE', label: '學額分析表', activeClass: 'border-violet-600 text-violet-700' },
+            ].map(tab => (
+              <button key={tab.id} onClick={() => setActiveTab(tab.id)}
+                className={`px-5 py-3 font-bold text-base border-b-4 transition-colors
+                  ${activeTab === tab.id
+                    ? tab.activeClass
                     : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}>
-                {tab === 'SSPA' ? '升中派位 (SSPA)' : '小一入學 (POA)'}
+                {tab.label}
               </button>
             ))}
           </div>
         </div>
       </header>
       <main className="px-4">
-        {activeTab === 'SSPA' ? <SSPASimulator /> : <POASimulator />}
+        {activeTab === 'SSPA' && <SSPASimulator />}
+        {activeTab === 'POA' && <POASimulator />}
+        {activeTab === 'TABLE' && <AllocationTable />}
       </main>
       <footer className="mt-16 max-w-6xl mx-auto border-t border-slate-300 pt-8 px-4 text-slate-500 text-xs md:text-sm leading-relaxed">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
