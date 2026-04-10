@@ -1,5 +1,5 @@
-// 25-26 統一派位學額分析表數據（來源：全港升中一家長互助群組）
-// 已更新區份：中西區、油尖旺區、九龍城區、黃大仙區（2025-26 實際數據）
+// 25-26 統一派位學額分析表數據（來源：全港升中一家長互助群組 + 教育局官方 SSL）
+// 已更新區份（25-26 官方數據）：中西區、油尖旺區、九龍城區、黃大仙區、沙田區
 // 其他區份：待更新（參考 2024-25 數據）
 export const ALLOCATION_DATA = [
   {
@@ -1353,7 +1353,7 @@ export const ALLOCATION_DATA = [
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
-    "gender": "男校",
+    "gender": "男女",
     "moi": "英中",
     "schoolandBand": "2A",
     "bigExamBand": "1C",
@@ -1363,7 +1363,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "221",
     "name": "旅港開平商會中學",
-    "openPlaces": 5,
+    "openPlaces": 89,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1372,12 +1372,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1A",
     "bigExamBand": "1B–1A",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "222",
     "name": "聖公會聖匠中學",
-    "openPlaces": 2,
+    "openPlaces": 51,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1386,7 +1386,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3A",
     "bigExamBand": "Band 3（不予排名）",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "223",
@@ -1395,7 +1395,7 @@ export const ALLOCATION_DATA = [
     "resvPlaces": 79,
     "district": "九龍城區",
     "financeType": "資助",
-    "gender": "女校",
+    "gender": "男女",
     "moi": "英中",
     "schoolandBand": "1B",
     "bigExamBand": "1B",
@@ -1405,8 +1405,8 @@ export const ALLOCATION_DATA = [
   {
     "code": "224",
     "name": "何文田官立中學",
-    "openPlaces": 2,
-    "resvPlaces": 3,
+    "openPlaces": 49,
+    "resvPlaces": 6,
     "district": "九龍城區",
     "financeType": "官立",
     "gender": "男女",
@@ -1414,13 +1414,13 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2A",
     "bigExamBand": "2A",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "225",
     "name": "賽馬會官立中學",
-    "openPlaces": 2,
-    "resvPlaces": 3,
+    "openPlaces": 29,
+    "resvPlaces": 5,
     "district": "九龍城區",
     "financeType": "官立",
     "gender": "男女",
@@ -1428,12 +1428,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3A",
     "bigExamBand": "3A",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "226",
     "name": "九龍塘學校(中學部)",
-    "openPlaces": 2,
+    "openPlaces": 72,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1442,7 +1442,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2C",
     "bigExamBand": "2C",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "227",
@@ -1451,7 +1451,7 @@ export const ALLOCATION_DATA = [
     "resvPlaces": 21,
     "district": "九龍城區",
     "financeType": "資助",
-    "gender": "女校",
+    "gender": "男女",
     "moi": "英中",
     "schoolandBand": "1B",
     "bigExamBand": "1A",
@@ -1461,16 +1461,16 @@ export const ALLOCATION_DATA = [
   {
     "code": "228",
     "name": "喇沙書院",
-    "openPlaces": 2,
-    "resvPlaces": 0,
+    "openPlaces": 17,
+    "resvPlaces": 138,
     "district": "九龍城區",
     "financeType": "資助",
-    "gender": "男校",
+    "gender": "男女",
     "moi": "英中",
     "schoolandBand": "1A",
     "bigExamBand": "1B–1A",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "229",
@@ -1479,7 +1479,7 @@ export const ALLOCATION_DATA = [
     "resvPlaces": 99,
     "district": "九龍城區",
     "financeType": "資助",
-    "gender": "女校",
+    "gender": "男女",
     "moi": "英中",
     "schoolandBand": "1A",
     "bigExamBand": "1A",
@@ -1503,7 +1503,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "231",
     "name": "新亞中學",
-    "openPlaces": 3,
+    "openPlaces": 73,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1545,16 +1545,16 @@ export const ALLOCATION_DATA = [
   {
     "code": "235",
     "name": "香港培道中學",
-    "openPlaces": 2,
-    "resvPlaces": 0,
+    "openPlaces": 51,
+    "resvPlaces": 21,
     "district": "九龍城區",
     "financeType": "資助",
-    "gender": "女校",
+    "gender": "男女",
     "moi": "中中",
     "schoolandBand": "1B",
     "bigExamBand": "1C-1B",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "236",
@@ -1573,7 +1573,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "237",
     "name": "禮賢會彭學高紀念中學",
-    "openPlaces": 2,
+    "openPlaces": 72,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1582,13 +1582,13 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2C",
     "bigExamBand": "2C",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "238",
     "name": "聖公會聖三一堂中學",
-    "openPlaces": 5,
-    "resvPlaces": 0,
+    "openPlaces": 52,
+    "resvPlaces": 21,
     "district": "九龍城區",
     "financeType": "資助",
     "gender": "男女",
@@ -1601,7 +1601,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "239",
     "name": "聖公會蔡功譜中學",
-    "openPlaces": 3,
+    "openPlaces": 73,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1619,7 +1619,7 @@ export const ALLOCATION_DATA = [
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
-    "gender": "女校",
+    "gender": "男女",
     "moi": "中中",
     "schoolandBand": "2C",
     "bigExamBand": "3A-2C",
@@ -1643,7 +1643,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "243",
     "name": "東華三院黃笏南中學",
-    "openPlaces": 4,
+    "openPlaces": 90,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1657,11 +1657,11 @@ export const ALLOCATION_DATA = [
   {
     "code": "244",
     "name": "鄧鏡波學校",
-    "openPlaces": 3,
+    "openPlaces": 91,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
-    "gender": "男校",
+    "gender": "男女",
     "moi": "中中",
     "schoolandBand": "2A",
     "bigExamBand": "2C-2B",
@@ -1671,7 +1671,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "245",
     "name": "何明華會督銀禧中學",
-    "openPlaces": 2,
+    "openPlaces": 85,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1680,7 +1680,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1B",
     "bigExamBand": "1A",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "246",
@@ -1713,7 +1713,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "249",
     "name": "余振強紀念中學",
-    "openPlaces": 2,
+    "openPlaces": 55,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -1722,7 +1722,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2B",
     "bigExamBand": "2B",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "253",
@@ -1741,7 +1741,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "523",
     "name": "創知中學",
-    "openPlaces": 20,
+    "openPlaces": 54,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "直資",
@@ -1750,12 +1750,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2C",
     "bigExamBand": "2C-2B",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "568",
     "name": "中華基督教會基道中學",
-    "openPlaces": 2,
+    "openPlaces": 56,
     "resvPlaces": 0,
     "district": "九龍城區",
     "financeType": "資助",
@@ -2455,11 +2455,11 @@ export const ALLOCATION_DATA = [
   {
     "code": "240",
     "name": "聖羅撒書院",
-    "openPlaces": 2,
-    "resvPlaces": 93,
+    "openPlaces": 12,
+    "resvPlaces": 0,
     "district": "沙田區",
     "financeType": "資助",
-    "gender": "女校",
+    "gender": "男女",
     "moi": "英中",
     "schoolandBand": "1B",
     "bigExamBand": "1B",
@@ -2478,7 +2478,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1A",
     "bigExamBand": "1A",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "449",
@@ -2492,7 +2492,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2B",
     "bigExamBand": "2C–2B",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "450",
@@ -2506,7 +2506,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3A",
     "bigExamBand": "Band 3（不予排名）",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "451",
@@ -2520,7 +2520,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2A",
     "bigExamBand": "2B",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "452",
@@ -2534,7 +2534,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3A",
     "bigExamBand": "3A",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "453",
@@ -2548,7 +2548,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2A",
     "bigExamBand": "Band 2（不予排名）",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "454",
@@ -2562,12 +2562,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1C",
     "bigExamBand": "2A-1C",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "455",
     "name": "東莞工商總會劉百樂中學",
-    "openPlaces": 55,
+    "openPlaces": 57,
     "resvPlaces": 21,
     "district": "沙田區",
     "financeType": "資助",
@@ -2576,7 +2576,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2C",
     "bigExamBand": "3A–2C",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "456",
@@ -2590,7 +2590,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2C",
     "bigExamBand": "2C",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "458",
@@ -2604,7 +2604,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1C",
     "bigExamBand": "Band 2（不予排名）",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "459",
@@ -2618,12 +2618,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1B",
     "bigExamBand": "1B",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "460",
     "name": "天主教郭得勝中學",
-    "openPlaces": 2,
+    "openPlaces": 74,
     "resvPlaces": 0,
     "district": "沙田區",
     "financeType": "資助",
@@ -2637,7 +2637,7 @@ export const ALLOCATION_DATA = [
   {
     "code": "461",
     "name": "樂道中學",
-    "openPlaces": 2,
+    "openPlaces": 55,
     "resvPlaces": 0,
     "district": "沙田區",
     "financeType": "資助",
@@ -2646,7 +2646,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3B",
     "bigExamBand": "3A",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "462",
@@ -2660,7 +2660,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2C",
     "bigExamBand": "2C",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "463",
@@ -2674,13 +2674,13 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2A",
     "bigExamBand": "2A-1C",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "464",
     "name": "馬鞍山崇真中學",
-    "openPlaces": 2,
-    "resvPlaces": 0,
+    "openPlaces": 55,
+    "resvPlaces": 21,
     "district": "沙田區",
     "financeType": "資助",
     "gender": "男女",
@@ -2702,12 +2702,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3A",
     "bigExamBand": "3A",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "467",
     "name": "五旬節林漢光中學",
-    "openPlaces": 2,
+    "openPlaces": 74,
     "resvPlaces": 0,
     "district": "沙田區",
     "financeType": "資助",
@@ -2716,7 +2716,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1B",
     "bigExamBand": "1C-1B",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "468",
@@ -2730,12 +2730,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3A",
     "bigExamBand": "3B",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "469",
     "name": "保良局胡忠中學",
-    "openPlaces": 2,
+    "openPlaces": 74,
     "resvPlaces": 0,
     "district": "沙田區",
     "financeType": "資助",
@@ -2758,12 +2758,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2B",
     "bigExamBand": "3A–2C（不予排名）",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "471",
     "name": "沙田培英中學",
-    "openPlaces": 2,
+    "openPlaces": 74,
     "resvPlaces": 0,
     "district": "沙田區",
     "financeType": "資助",
@@ -2772,7 +2772,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1A",
     "bigExamBand": "1A",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "472",
@@ -2786,7 +2786,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1A",
     "bigExamBand": "1B-1A",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "473",
@@ -2800,13 +2800,13 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1A",
     "bigExamBand": "1A",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "474",
     "name": "沙田官立中學",
-    "openPlaces": 2,
-    "resvPlaces": 0,
+    "openPlaces": 61,
+    "resvPlaces": 23,
     "district": "沙田區",
     "financeType": "官立",
     "gender": "男女",
@@ -2814,7 +2814,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1B",
     "bigExamBand": "Band 1（不予排名）",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "475",
@@ -2828,7 +2828,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1B",
     "bigExamBand": "1B",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "476",
@@ -2842,7 +2842,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "1A",
     "bigExamBand": "1A",
     "mainBand": "Band 1",
-    "updated": false
+    "updated": true
   },
   {
     "code": "479",
@@ -2856,7 +2856,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2C",
     "bigExamBand": "2B",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "480",
@@ -2870,7 +2870,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3A",
     "bigExamBand": "3B",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "481",
@@ -2884,7 +2884,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3C",
     "bigExamBand": "3C",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "482",
@@ -2898,7 +2898,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2B",
     "bigExamBand": "2C",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "483",
@@ -2912,7 +2912,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3A",
     "bigExamBand": "Band 3（不予排名）",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "484",
@@ -2926,7 +2926,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3B",
     "bigExamBand": "3C",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "485",
@@ -2940,7 +2940,7 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "3C",
     "bigExamBand": "3C",
     "mainBand": "Band 3",
-    "updated": false
+    "updated": true
   },
   {
     "code": "543",
@@ -2954,12 +2954,12 @@ export const ALLOCATION_DATA = [
     "schoolandBand": "2B",
     "bigExamBand": "2C–2B",
     "mainBand": "Band 2",
-    "updated": false
+    "updated": true
   },
   {
     "code": "563",
     "name": "明愛馬鞍山中學",
-    "openPlaces": 2,
+    "openPlaces": 4,
     "resvPlaces": 0,
     "district": "沙田區",
     "financeType": "資助",

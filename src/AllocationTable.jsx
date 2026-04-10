@@ -130,7 +130,7 @@ export default function AllocationTable() {
           <p>本表格數據來源：<strong>全港・升中一家長互助群組</strong>整理，整合教育局官方學額及坊間 Banding 評級。共 <strong>{ALLOCATION_DATA.length}</strong> 所中學。</p>
           <p className="mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-            <span>已更新區份（25-26 實際數據）：<strong>中西區、油尖旺區、九龍城區、黃大仙區</strong>（共 {updatedCount} 所）。其他區份參考 24-25 數據，待更新。</span>
+            <span>已更新區份（25-26 官方數據）：<strong>中西區、油尖旺區、九龍城區、黃大仙區、沙田區</strong>（共 {updatedCount} 所）。其他區份參考 24-25 數據，待更新。</span>
           </p>
         </div>
       </div>
