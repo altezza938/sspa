@@ -144,6 +144,7 @@ function SSPASimulator() {
   const [shownLogs, setShownLogs] = useState([]);
   const [isSimulating, setIsSimulating] = useState(false);
   const [result, setResult] = useState(null);
+  const [showLogPanel, setShowLogPanel] = useState(false);
   const logsEndRef = useRef(null);
 
   useEffect(() => { logsEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [shownLogs]);
@@ -372,7 +373,7 @@ function SSPASimulator() {
             <div><span className="text-slate-500 block font-bold mb-1">就讀小學：</span><span className="font-bold text-slate-800">{result.finalPri}</span></div>
             <div><span className="text-slate-500 block font-bold mb-1">全港派位組別：</span><span className="font-black text-blue-700 text-xl">Band {formData.banding}</span><span className="text-slate-400 text-sm ml-2">({formData.studentRank}/{formData.totalStudents})</span></div>
             <div><span className="text-slate-500 block font-bold mb-1">獲派階段：</span><span className="font-black text-indigo-600 bg-indigo-50 px-3 py-1 rounded-md">{result.stage}</span></div>
-            <div><span className="text-slate-500 block font-bold mb-1">隨機編號：</span><span className="font-black text-slate-800 text-lg">{result.rnd}<span className="text-slate-400 text-sm font-normal"> / 100</span></span></div>
+            <div><span className="text-slate-500 block font-bold mb-1">隨機編號：</span><span className="font-black text-slate-800 text-lg">{result.rnd.toLocaleString()}<span className="text-slate-400 text-sm font-normal"> / 10,000（越小越優先）</span></span></div>
           </div>
           <div className="text-center py-6 bg-white rounded-xl border-2 border-emerald-500 shadow-sm">
             <span className="text-slate-500 block mb-3 font-bold tracking-widest">✅ 最終獲派中學</span>
@@ -401,7 +402,41 @@ function SSPASimulator() {
           <h3 className="font-bold text-xl text-slate-800 mb-3 flex items-center"><ListOrdered className="mr-2 text-blue-600 w-6 h-6"/>派位分析</h3>
           <div className="bg-blue-50 text-blue-900 p-5 rounded-xl border border-blue-200 leading-relaxed font-medium">{result.reason}</div>
         </div>
-        <button onClick={() => { setStep('FORM'); setShownLogs([]); setAllLogs([]); }}
+
+        {/* Expandable system log */}
+        <div className="mb-6 border border-slate-200 rounded-xl overflow-hidden">
+          <button
+            onClick={() => setShowLogPanel(v => !v)}
+            className="w-full flex items-center justify-between px-5 py-4 bg-slate-50 hover:bg-slate-100 transition-colors text-left">
+            <span className="flex items-center gap-2 font-bold text-slate-700">
+              <ListOrdered className="w-5 h-5 text-slate-500"/>
+              電腦派位系統選校流程記錄
+            </span>
+            <span className="text-slate-400 text-sm flex items-center gap-1">
+              {showLogPanel ? '▲ 收起' : '▼ 展開查看完整派位邏輯'}
+            </span>
+          </button>
+          {showLogPanel && (
+            <div className="bg-slate-900 p-4 font-mono text-xs max-h-96 overflow-y-auto">
+              {allLogs.map((log, i) => {
+                const colors = {
+                  info:    'text-slate-400',
+                  header:  'text-yellow-400 font-bold mt-2',
+                  check:   'text-cyan-400',
+                  success: 'text-emerald-400 font-bold',
+                  fail:    'text-red-400',
+                };
+                return (
+                  <div key={i} className={`py-0.5 ${colors[log.type] || 'text-slate-300'}`}>
+                    {log.text}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        <button onClick={() => { setStep('FORM'); setShownLogs([]); setAllLogs([]); setShowLogPanel(false); }}
           className="w-full bg-white hover:bg-slate-50 text-slate-800 font-black py-5 rounded-xl flex items-center justify-center text-xl border-2 border-slate-300">
           <RotateCcw className="mr-2 w-6 h-6"/> 返回修改志願表
         </button>
