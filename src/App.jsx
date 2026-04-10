@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Play, RotateCcw, AlertCircle, CheckCircle2, School, User,
   ListOrdered, FastForward, Calculator, Info, Sparkles, BookOpen,
-  Shield, GraduationCap, Link, Edit2, Users, Table2
+  Shield, GraduationCap, Link, Edit2, Users
 } from 'lucide-react';
 import AllocationTable from './AllocationTable.jsx';
 import {
