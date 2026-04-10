@@ -265,20 +265,21 @@ function SSPASimulator() {
     const sv = BAND_VALUES[formData.banding];
     // EDB: allocation priority is based on MAIN band (1/2/3), not sub-band
     const sm = MAIN_BAND[formData.banding];
-    // Random number 1-100; within same main band, HIGHER = allocated first
-    const rnd = Math.floor(Math.random() * 100) + 1;
+    // EDB official: random number 1–10000; SMALLER number = higher priority (allocated first)
+    const rnd = Math.floor(Math.random() * 10000) + 1;
+    // pct: percentile rank (0=worst, 100=best) — used internally for chance calculations
+    const pct = Math.round((1 - (rnd - 1) / 9999) * 100);
 
     let logs = [];
     let allocated = null, reason = '', stage = '';
 
     logs.push({ type: 'info', text: '【教育局 SSPA 電腦派位系統啟動】' });
     logs.push({ type: 'info', text: `> 小學：[${finalPri}]　全港及校網派位大 Band：Band ${sm}　子 Band：${formData.banding}` });
-    logs.push({ type: 'info', text: `> 同組別隨機編號：${rnd}/100（號碼越大越優先獲派）` });
-    logs.push({ type: 'info', text: `> 教育局機制：學校按 Band 1→2→3 順序填滿學額；同 Band 內以隨機編號決定優先次序。` });
+    logs.push({ type: 'info', text: `> 同組別隨機編號：${rnd}（號碼越小越優先獲派，教育局機制）` });
+    logs.push({ type: 'info', text: `> 教育局機制：學校按 Band 1→2→3 順序填滿學額；同 Band 內隨機編號越小越優先。` });
 
     // EDB: A lower-band student CAN receive a higher-band school if places remain after higher-band students.
-    // We model this with chance based on openPlaces and band gap.
-    const tryAlloc = (choiceObj, isPartA, idx) => {
+    const tryAlloc = (choiceObj, isPartA) => {
       if (!choiceObj?.code) return { ok: false, text: '志願留空，跳過。' };
       const sch = HK_SEC_SCHOOLS.find(s => s.code === choiceObj.code);
       if (!sch) return { ok: false, text: '找不到此學校。' };
@@ -289,21 +290,19 @@ function SSPASimulator() {
 
       if (sm < sm2) {
         // Student is higher main band than school's rating: strong chance
-        chance = 90 + Math.min(rnd * 0.1, 9);
+        chance = 90 + Math.min(pct * 0.1, 9);
       } else if (sm === sm2) {
-        // Same main band: random number determines outcome
-        // Higher rnd = more competitive
+        // Same main band: random number (percentile) determines outcome
         chance = isPartA
-          ? (rnd > 80 ? 70 : rnd > 50 ? 35 : 10)
-          : (rnd > 70 ? 85 : rnd > 40 ? 50 : 20);
-        // Adjust for available places
+          ? (pct > 80 ? 70 : pct > 50 ? 35 : 10)
+          : (pct > 70 ? 85 : pct > 40 ? 50 : 20);
         if (sch.openPlaces > 60) chance += 10;
         if (sch.openPlaces < 15) chance -= 15;
       } else {
-        // Student is lower band than school: possible only if places remain (unlikely but valid per EDB)
+        // Student is lower band than school: only if places remain after higher-band students (EDB confirmed)
         chance = isPartA
-          ? (rnd > 95 ? 10 : 0)
-          : (rnd > 90 ? (sch.openPlaces > 50 ? 15 : 5) : 0);
+          ? (pct > 95 ? 10 : 0)
+          : (pct > 90 ? (sch.openPlaces > 50 ? 15 : 5) : 0);
       }
       chance = Math.max(0, Math.min(100, chance));
 
@@ -317,26 +316,26 @@ function SSPASimulator() {
       return { ok: false, text: why };
     };
 
-    logs.push({ type: 'header', text: '=== 甲部（不受學校網限制，10% 學額，3 個志願）===' });
+    logs.push({ type: 'header', text: '=== 甲部（不受學校網限制，10% 學額，最多 3 個志願）===' });
     for (let i = 0; i < 3 && !allocated; i++) {
       if (formData.partA[i]?.code) {
         const sch = HK_SEC_SCHOOLS.find(s => s.code === formData.partA[i].code);
         logs.push({ type: 'check', text: `甲部志願 ${i+1}：[${sch?.code}] ${sch?.name}` });
-        const r = tryAlloc(formData.partA[i], true, i);
+        const r = tryAlloc(formData.partA[i], true);
         logs.push({ type: r.ok ? 'success' : 'fail', text: r.text });
-        if (r.ok) { allocated = r.school; stage = '甲部 (不受校網限制)'; reason = `配合良好的隨機編號（${rnd}/100），成功在競爭最激烈的甲部獲派第 ${i+1} 志願。`; }
+        if (r.ok) { allocated = r.school; stage = '甲部 (不受校網限制)'; reason = `隨機編號 ${rnd}（全港排名前 ${pct}%），成功在甲部獲派第 ${i+1} 志願。`; }
       }
     }
 
     if (!allocated) {
-      logs.push({ type: 'header', text: '=== 乙部（按學校網，90% 學額，30 個志願）===' });
+      logs.push({ type: 'header', text: '=== 乙部（按學校網，90% 學額，最多 30 個志願）===' });
       for (let i = 0; i < 30 && !allocated; i++) {
         if (formData.partB[i]?.code) {
           const sch = HK_SEC_SCHOOLS.find(s => s.code === formData.partB[i].code);
           logs.push({ type: 'check', text: `乙部志願 ${i+1}：[${sch?.code}] ${sch?.name}` });
-          const r = tryAlloc(formData.partB[i], false, i);
+          const r = tryAlloc(formData.partB[i], false);
           logs.push({ type: r.ok ? 'success' : 'fail', text: r.text });
-          if (r.ok) { allocated = r.school; stage = '乙部 (按校網限制)'; reason = `乙部處理你的 Band ${sm} 時，第 ${i+1} 志願仍有剩餘學額，隨機編號 ${rnd} 成功中籤。`; }
+          if (r.ok) { allocated = r.school; stage = '乙部 (按校網限制)'; reason = `乙部處理 Band ${sm} 時，第 ${i+1} 志願仍有剩餘學額，隨機編號 ${rnd} 成功中籤。`; }
         }
       }
     }
